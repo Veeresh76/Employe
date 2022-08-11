@@ -67,6 +67,12 @@ public class EmployeServices {
 	}
 
 
+	public Employe getEmployeByid(int id) {
+		
+		return employerepository.findById(id).get();
+	}
+
+
 	
 
 }

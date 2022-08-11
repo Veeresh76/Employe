@@ -20,47 +20,52 @@ public class EmployeController {
 
 	@Autowired
 	EmployeServices employeServices;
-	
+
 	//test
 	@GetMapping("/test")
 	public String test() {
 		employeServices.tests();
 		return "done";
 	}
-	
-	
+
+
 	//Add Employe By Employe object and Department Id
-	     @PostMapping("/addEmp")
-	      public Employe addEmploye(@RequestBody Employe e) {
-		 
-	    	 return   employeServices.addEmp(e);
-		  
-		
+	@PostMapping("/addEmp")
+	public Employe addEmploye(@RequestBody Employe e) {
+
+		return   employeServices.addEmp(e);
+
+
 	}
-		
-	
-	
+
+
+
 	//Get all Employe	
-    @GetMapping("/allEmp")
-  public List<Employe> getAllEmploye(){
-   return	employeServices.getAllEmp();	
-		}
-		
-    
-  //Get all Employe	with same DID in sort by age order
-    @GetMapping("/EmpSBA/{did}")
-  public List<Employe> getEmpsByDid(@PathVariable ("did") int did){
-   return	employeServices.getEmployesByDid(did);	
-		}
-    
-    //Get all Employe	with same DID in sort by age name
-    @GetMapping("/EmpSBN/{did}")
-  public List<Employe> getEmpsByDidInSBN(@PathVariable ("did") int did){
-   return	employeServices.getEmployesByDidinSBN(did);	
-		}
-    
+	@GetMapping("/allEmp")
+	public List<Employe> getAllEmploye(){
+		return	employeServices.getAllEmp();	
 	}
-	
-	
-	
+
+	//Get all Employe	with same DID in sort by age order
+	@GetMapping("/Emp/{id}")
+	public Employe getEmpByid(@PathVariable ("id") int id){
+		return	employeServices.getEmployeByid(id);	
+	}
+
+	//Get all Employe	with same DID in sort by age order
+	@GetMapping("/EmpSBA/{did}")
+	public List<Employe> getEmpsByDid(@PathVariable ("did") int did){
+		return	employeServices.getEmployesByDid(did);	
+	}
+
+	//Get all Employe	with same DID in sort by age name
+	@GetMapping("/EmpSBN/{did}")
+	public List<Employe> getEmpsByDidInSBN(@PathVariable ("did") int did){
+		return	employeServices.getEmployesByDidinSBN(did);	
+	}
+
+}
+
+
+
 
